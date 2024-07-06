@@ -3,7 +3,7 @@ from turtle import Turtle
 
 
 class Car(Turtle):
-    def __init__(self, color):
+    def __init__(self, color: str) -> None:
         super().__init__()
         self.shape("square")
         self.color(color)
@@ -13,6 +13,6 @@ class Car(Turtle):
         y_cord = random.randint(-280, 280)
         self.goto(300, y_cord)
 
-    def move(self, move_distance):
+    def move(self, move_distance: int) -> None:
         new_x = self.xcor() - move_distance
         self.goto(new_x, self.ycor())

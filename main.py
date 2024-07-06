@@ -9,14 +9,14 @@ screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
 
-player = Player()
-car_manager = CarManager()
-scoreboard = Scoreboard()
+player: Player = Player()
+car_manager: CarManager = CarManager()
+scoreboard: Scoreboard = Scoreboard()
 
 screen.listen()
 screen.onkey(player.move_forwards, "Up")
 
-game_is_on = True
+game_is_on: bool = True
 while game_is_on:
     time.sleep(0.1)
     car_manager.update()
