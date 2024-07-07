@@ -7,6 +7,8 @@
 # Hint2: This method will also help you: https://www.w3schools.com/python/ref_string_replace.asp
 # Hint3: THis method will help you: https://www.w3schools.com/python/ref_string_strip.asp
 
+PLACEHOLDER = "[name]"
+
 with open("Input/Names/invited_names.txt") as file:
     names = file.readlines()
 
@@ -19,7 +21,7 @@ for name in names:
     print(name)
     clean_name = str.strip(name)
     new_letter = starting_letter.copy()
-    new_letter[0] = str.replace(starting_letter[0], "[name]", clean_name)
+    new_letter[0] = str.replace(starting_letter[0], PLACEHOLDER, clean_name)
     print(new_letter[0])
 
     with open(f"Output/ReadyToSend/letter_for_{clean_name}", "w") as file:
