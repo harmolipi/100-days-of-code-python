@@ -53,11 +53,12 @@ while len(correct_answers) < 50:
         correct_answers.append(answer_state)
         plot_answer(found_state)
 
-states_to_learn = {"states to learn": []}
-for row in states_data.iterrows():
-    state = row[1].state
-    if state not in correct_answers:
-        states_to_learn["states to learn"].append(state)
+states_to_learn_list = [
+    row[1].state
+    for row in states_data.iterrows()
+    if row[1].state not in correct_answers
+]
+states_to_learn = {"states to learn": states_to_learn_list}
 
 states_to_learn_df = pandas.DataFrame(states_to_learn)
 states_to_learn_df.to_csv("states_to_learn.csv")
